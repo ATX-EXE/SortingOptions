@@ -3,27 +3,53 @@ package local.nefedov.boxСomparison;
 import java.util.Comparator;
 
 public class Box implements Comparable<Box> {
+    /**
+     * Стороны коробки
+     */
     private int a, b, c;
 
+    /**
+     * Конструктор
+     * @param a Длина
+     * @param b Ширина
+     * @param c Глубина
+     */
     public Box(int a, int b, int c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
+    /**
+     * Переопределение toString()
+     * @return (String) Box{a, b, c}
+     */
     @Override
     public String toString() {
         return "Box{" + "a=" + a + ", b=" + b + ", c=" + c + '}';
     }
 
+    /**
+     * Определение объема
+     * @return (int) volume
+     */
     public int volume() {
         return a * b * c;
     }
 
+    /**
+     * Getter для длины
+     * @return (int) a
+     */
     public int getA() {
         return a;
     }
 
+    /**
+     * Переопределение compareTo(Box rValue)
+     * @param rValue
+     * @return (int) Сравнение значения объема коробки с объемом другой переданной коробки
+     */
     @Override
     public int compareTo(Box rValue) {
         return volume() - rValue.volume();
@@ -31,7 +57,7 @@ public class Box implements Comparable<Box> {
 
     /**
      * Первая реализация через inner Class
-     * иннеркласс CompareByA с реализацией интерфейса
+     * Иннеркласс CompareByA с реализацией интерфейса
      * сортировка по стороне a
      */
 //    public class CompareByA implements Comparator<Box> {
@@ -42,7 +68,7 @@ public class Box implements Comparable<Box> {
 //    }
 
     /**
-     * вторая реализация через static inner class
+     * Вторая реализация через static inner class
      * статик иннеркласс CompareByA с реализацией интерфейса
      * сортировка по стороне a
      */
@@ -54,7 +80,7 @@ public class Box implements Comparable<Box> {
     }
 
     /**
-     * Третяя реализация через создание локального класса
+     * Третья реализация через создание локального класса
      * Статичный, но может быть и не статичным
      * @return Comporator<Box>
      */
@@ -75,10 +101,10 @@ public class Box implements Comparable<Box> {
      */
     static public Comparator<Box> compareByA() {
         return new Comparator<Box>() {
-            //констройктор анонимного класса (инициализация экземпляром)
-            {
-                //...
-            }
+            // Конструктор анонимного класса (инициализация экземпляром)
+            // {
+            // ...
+            // }
 
             @Override
             public int compare(Box b1, Box b2) {
